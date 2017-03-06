@@ -1,0 +1,48 @@
+<html>
+<head>
+  <style type="text/css">
+
+
+  </style>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+<script>
+
+$(document).ready(function() {
+
+  $('#go').on('click', function() {
+    var total = $('#options li').length;
+    var pick = Math.floor(Math.random() * total);
+    console.log(pick)
+    $('#winner').html($('#options li')[pick].innerHTML)
+  });
+
+  $('#add').on('click', function() {
+    $('#options').append("<li>" + $('#newOption').val() + "</li>")
+    $('#newOption').val("")
+  })
+
+});
+
+
+</script>
+<h1>Pizza Roulette!</h1>
+
+<h2>Step one add pizza</h2>
+
+<input type="text" id="newOption">
+<button id="add">Add it!</button>
+
+<h1>Options</h1>
+<ul id="options">
+
+</ul>
+
+<h2>Step two eat pizza</h2>
+<button id="go">Pick</button>
+
+<div id="results">
+  <h1>And the winner is: </h1>
+  <div id="winner">
+</div>
